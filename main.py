@@ -1,14 +1,10 @@
 from tkinter import *
-from tkinter import ttk
-from train import Train
 from PIL import Image, ImageTk
 from student import Student
 from train import Train
 from face_recognition import Face_Recognition
 from attendance import Attendance
-from developer import Developer
 import os
-from helpsupport import Helpsupport
 
 
 class Face_Recognition_System:
@@ -17,8 +13,7 @@ class Face_Recognition_System:
         self.root.geometry("1175x768+150+25")
         self.root.title("Face_Recogonition_System")
 
-        # This part is image labels setting start
-        # first header image  
+        # first header image
         img = Image.open(
             r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\banner1.jpg")
         img = img.resize((1175, 130), Image.ANTIALIAS)
@@ -42,8 +37,6 @@ class Face_Recognition_System:
                           font=("verdana", 25, "bold"), bg="white", fg="navyblue")
         title_lb1.place(x=0, y=0, width=1175, height=45)
 
-        # Create buttons below the section 
-        # ------------------------------------------------------------------------------------------------------------------- 
         # student button 1
         std_img_btn = Image.open(
             r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\student_portal_1.jpg")
@@ -83,21 +76,7 @@ class Face_Recognition_System:
                           font=("tahoma", 15, "bold"), bg="white", fg="navyblue")
         att_b1_1.place(x=710, y=280, width=180, height=45)
 
-        # # Help  Support  button 4
-        # hlp_img_btn=Image.open(r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\hlp.jpg")
-        # hlp_img_btn=hlp_img_btn.resize((180,180),Image.ANTIALIAS)
-        # self.hlp_img1=ImageTk.PhotoImage(hlp_img_btn)
-
-        # hlp_b1 = Button(bg_img,command=self.helpSupport,image=self.hlp_img1,cursor="hand2",)
-        # hlp_b1.place(x=940,y=100,width=180,height=180)
-
-        # hlp_b1_1 = Button(bg_img,command=self.helpSupport,text="Help Support",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
-        # hlp_b1_1.place(x=940,y=280,width=180,height=45)
-
-        ## Top 4 buttons end.......
-        ## ---------------------------------------------------------------------------------------------------------------------------
-        ## Start below buttons.........
-        # Train   button 5
+        # Train   button 4
         tra_img_btn = Image.open(
             r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\train.png")
         tra_img_btn = tra_img_btn.resize((180, 180), Image.ANTIALIAS)
@@ -110,7 +89,7 @@ class Face_Recognition_System:
                           font=("tahoma", 15, "bold"), bg="white", fg="navyblue")
         tra_b1_1.place(x=250, y=510, width=180, height=45)
 
-        # Photo   button 6
+        # Photo   button 5
         pho_img_btn = Image.open(
             r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\photos.jpg")
         pho_img_btn = pho_img_btn.resize((180, 180), Image.ANTIALIAS)
@@ -123,18 +102,7 @@ class Face_Recognition_System:
                           bg="white", fg="navyblue")
         pho_b1_1.place(x=480, y=510, width=180, height=45)
 
-        ## Developers   button 7
-        # dev_img_btn=Image.open(r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\dev.jpg")
-        # dev_img_btn=dev_img_btn.resize((180,180),Image.ANTIALIAS)
-        # self.dev_img1=ImageTk.PhotoImage(dev_img_btn)
-
-        # dev_b1 = Button(bg_img,command=self.developr,image=self.dev_img1,cursor="hand2",)
-        # dev_b1.place(x=710,y=330,width=180,height=180)
-
-        # dev_b1_1 = Button(bg_img,command=self.developr,text="Developers",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
-        # dev_b1_1.place(x=710,y=510,width=180,height=45)
-
-        # exit   button 8
+        # exit   button
         exi_img_btn = Image.open(
             r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\exit2.png")
         exi_img_btn = exi_img_btn.resize((180, 180), Image.ANTIALIAS)
@@ -147,11 +115,9 @@ class Face_Recognition_System:
                           bg="white", fg="navyblue")
         exi_b1_1.place(x=710, y=510, width=180, height=45)
 
-    # ==================Funtion for Open Images Folder==================
     def open_img(self):
         os.startfile("dataset")
 
-    # ==================Functions Buttons=====================
     def student_pannels(self):
         self.new_window = Toplevel(self.root)
         self.app = Student(self.new_window)
@@ -167,14 +133,6 @@ class Face_Recognition_System:
     def attendance_pannel(self):
         self.new_window = Toplevel(self.root)
         self.app = Attendance(self.new_window)
-
-    # def developr(self):
-    #    self.new_window=Toplevel(self.root)
-    #    self.app=Developer(self.new_window)
-
-    # def helpSupport(self):
-    #    self.new_window=Toplevel(self.root)
-    #    self.app=Helpsupport(self.new_window)
 
     def Close(self):
         root.destroy()

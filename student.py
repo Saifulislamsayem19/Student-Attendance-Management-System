@@ -26,8 +26,6 @@ class Student:
         self.root = root
         self.root.geometry("1366x768+0+0")
         self.root.title("Student Pannel")
-
-        # -----------Variables-------------------
         self.var_dep = StringVar()
         self.var_course = StringVar()
         self.var_year = StringVar()
@@ -43,8 +41,7 @@ class Student:
         self.var_address = StringVar()
         self.var_teacher = StringVar()
 
-        # This part is image labels setting start
-        # first header image  
+        # first header image
         img = Image.open(
             r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\banner.jpg")
         img = img.resize((1366, 130), Image.ANTIALIAS)
@@ -94,8 +91,6 @@ class Student:
         dep_combo.current(0)
         dep_combo.grid(row=0, column=1, padx=5, pady=15, sticky=W)
 
-        # -----------------------------------------------------
-
         # label Course
         cou_label = Label(current_course_frame, text="Course", font=("verdana", 12, "bold"), bg="white", fg="navyblue")
         cou_label.grid(row=0, column=2, padx=5, pady=15)
@@ -121,8 +116,6 @@ class Student:
         year_combo["values"] = ("Select Year", "2017-18", "2018-19", "2019-20", "2020-21", "2021-22")
         year_combo.current(0)
         year_combo.grid(row=1, column=1, padx=5, pady=15, sticky=W)
-
-        # -----------------------------------------------------------------
 
         # label Semester
         year_label = Label(current_course_frame, text="Semester", font=("verdana", 12, "bold"), bg="white",
@@ -160,15 +153,6 @@ class Student:
         student_name_entry = ttk.Entry(class_Student_frame, textvariable=self.var_std_name, width=15,
                                        font=("verdana", 12, "bold"))
         student_name_entry.grid(row=0, column=3, padx=5, pady=5, sticky=W)
-
-        ##Class Didvision
-        # student_div_label = Label(class_Student_frame,text="Class Division:",font=("verdana",12,"bold"),fg="navyblue",bg="white")
-        # student_div_label.grid(row=1,column=0,padx=5,pady=5,sticky=W)
-
-        # div_combo=ttk.Combobox(class_Student_frame,textvariable=self.var_reg,width=13,font=("verdana",12,"bold"),state="readonly")
-        # div_combo["values"]=("Morning","Evening")
-        # div_combo.current(0)
-        # div_combo.grid(row=1,column=1,padx=5,pady=5,sticky=W)
 
         # Reg No
         student_reg_label = Label(class_Student_frame, text="Reg-No:", font=("verdana", 12, "bold"), fg="navyblue",
@@ -288,8 +272,7 @@ class Student:
                                   bg="navyblue")
         update_photo_btn.grid(row=0, column=5, padx=5, pady=10, sticky=W)
 
-        # ----------------------------------------------------------------------
-        # Right Label Frame 
+        # Right Label Frame
         right_frame = LabelFrame(main_frame, bd=2, bg="white", relief=RIDGE, text="Student Details",
                                  font=("verdana", 12, "bold"), fg="navyblue")
         right_frame.place(x=680, y=10, width=660, height=480)
@@ -321,7 +304,6 @@ class Student:
                              font=("verdana", 12, "bold"), fg="white", bg="navyblue")
         showAll_btn.grid(row=0, column=4, padx=5, pady=10, sticky=W)
 
-        # -----------------------------Table Frame-------------------------------------------------
         # Table Frame
         # Searching System in Right Label Frame
         table_frame = Frame(right_frame, bd=2, bg="white", relief=RIDGE)
@@ -332,9 +314,7 @@ class Student:
         scroll_y = ttk.Scrollbar(table_frame, orient=VERTICAL)
 
         # create table
-        self.student_table = ttk.Treeview(table_frame, column=(
-        "ID", "Name", "Dep", "Course", "Year", "Sem", "Reg", "Gender", "DOB", "Mob-No", "Address", "Roll-No", "Email",
-        "Teacher", "Photo"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
+        self.student_table = ttk.Treeview(table_frame, xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
 
         scroll_x.pack(side=BOTTOM, fill=X)
         scroll_y.pack(side=RIGHT, fill=Y)
@@ -379,7 +359,6 @@ class Student:
         self.student_table.bind("<ButtonRelease>", self.get_cursor)
         self.fetch_data()
 
-    # ==================Function Decleration==============================
     def add_data(self):
         if self.var_dep.get() == "Select Department" or self.var_course.get == "Select Course" or self.var_year.get() == "Select Year" or \
                 self.var_semester.get() == "Select Semester" or self.var_std_id.get() == "" or self.var_std_name.get() == "" or \
@@ -416,7 +395,6 @@ class Student:
             except Exception as es:
                 messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
 
-    # ===========================Fetch data form database to table ================================
 
     def fetch_data(self):
         conn = mysql.connector.connect(username='root', password='Saiful2000', host='localhost',
@@ -433,7 +411,6 @@ class Student:
             conn.commit()
         conn.close()
 
-    # ================================get cursor function=======================
 
     def get_cursor(self, event=""):
         cursor_focus = self.student_table.focus()
@@ -456,7 +433,6 @@ class Student:
         self.var_teacher.set(data[13]),
         self.var_radio1.set(data[14])
 
-    # ========================================Update Function==========================
     def update_data(self):
         if self.var_dep.get() == "Select Department" or self.var_course.get == "Select Course" or self.var_year.get() == "Select Year" or self.var_semester.get() == "Select Semester" or self.var_std_id.get() == "" or self.var_std_name.get() == "" or self.var_reg.get() == "" or self.var_roll.get() == "" or self.var_gender.get() == "" or self.var_dob.get() == "" or self.var_email.get() == "" or self.var_mob.get() == "" or self.var_address.get() == "" or self.var_teacher.get() == "":
             messagebox.showerror("Error", "Please Fill All Fields are Required!", parent=self.root)
@@ -468,7 +444,9 @@ class Student:
                                                    database='face_recognition', port=3306)
                     mycursor = conn.cursor()
                     mycursor.execute(
-                        "update student set Name=%s,Department=%s,Course=%s,Year=%s,Semester=%s,Reg=%s,Gender=%s,DOB=%s,Mobile_No=%s,Address=%s,Roll_No=%s,Email=%s,Teacher_Name=%s,PhotoSample=%s where Student_ID=%s",
+                        "update student set Name=%s,Department=%s,Course=%s,Year=%s,Semester=%s,Reg=%s,Gender=%s,"
+                        "DOB=%s,Mobile_No=%s,Address=%s,Roll_No=%s,Email=%s,Teacher_Name=%s,PhotoSample=%s where "
+                        "Student_ID=%s",
                         (
                             self.var_std_name.get(),
                             self.var_dep.get(),
@@ -496,7 +474,6 @@ class Student:
             except Exception as es:
                 messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
 
-    # ==============================Delete Function=========================================
     def delete_data(self):
         if self.var_std_id.get() == "":
             messagebox.showerror("Error", "Student Id Must be Required!", parent=self.root)
@@ -521,8 +498,7 @@ class Student:
             except Exception as es:
                 messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
 
-                # Reset Function
-
+    # Reset Function
     def reset_data(self):
         self.var_std_id.set(""),
         self.var_std_name.set(""),
@@ -540,7 +516,6 @@ class Student:
         self.var_teacher.set(""),
         self.var_radio1.set("")
 
-    # ===========================Search Data===================
     def search_data(self):
         if self.var_search.get() == "" or self.var_searchTX.get() == "Select":
             messagebox.showerror("Error", "Select Combo option and enter entry box", parent=self.root)
@@ -549,25 +524,23 @@ class Student:
                 conn = mysql.connector.connect(username='root', password='Saiful2000', host='localhost',
                                                database='face_recognition', port=3306)
                 my_cursor = conn.cursor()
-                sql = "SELECT Student_ID,Name,Department,Course,Year,Semester,Reg,Gender,DOB,Mobile_No,Address,Roll_No,Email,Teacher_Name,PhotoSample FROM student where Roll_No='" + str(
+                sql = "SELECT Student_ID,Name,Department,Course,Year,Semester,Reg,Gender,DOB,Mobile_No,Address," \
+                      "Roll_No,Email,Teacher_Name,PhotoSample FROM student where Roll_No='" + str(
                     self.var_search.get()) + "'"
                 my_cursor.execute(sql)
-                # my_cursor.execute("select * from student where Roll_No= " +str(self.var_search.get())+" "+str(self.var_searchTX.get())+"")
                 rows = my_cursor.fetchall()
                 if len(rows) != 0:
                     self.student_table.delete(*self.student_table.get_children())
                     for i in rows:
                         self.student_table.insert("", END, values=i)
-                    if rows == None:
+                    if rows is None:
                         messagebox.showerror("Error", "Data Not Found", parent=self.root)
                         conn.commit()
                 conn.close()
             except Exception as es:
                 messagebox.showerror("Error", f"Due To :{str(es)}", parent=self.root)
 
-    # =====================This part is related to Opencv Camera part=======================
-    # ==================================Generate Data set take image=========================
-
+    # OpenCv part
     # def generate_dataset(self):
     #     if self.var_dep.get() == "Select Department" or self.var_course.get == "Select Course" or self.var_year.get() == "Select Year" \
     #             or self.var_semester.get() == "Select Semester" or self.var_std_id.get() == "" or self.var_std_name.get() == "" \
@@ -610,7 +583,6 @@ class Student:
     #             self.reset_data()
     #             conn.close()
     #
-    #             # ====================part of opencv=======================
     #
     #             face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
     #
@@ -685,18 +657,17 @@ class Student:
         else:
             try:
 
-                # ===== Load data =======
                 faceClassifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
                 def cropped_face(img):
                     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-                    face = faceClassifier.detectMultiScale(img_rgb,1.3,5)              # scaling factor and minimum neighbor
+                    face = faceClassifier.detectMultiScale(img_rgb,1.3,5)
 
                     for (x,y,w,h) in face:
                         cropped_face = img[y:y+h, x:x+w]
                         return cropped_face
 
-                capture_device = cv2.VideoCapture(0)                                    # initialising the webcam
+                capture_device = cv2.VideoCapture(0)
                 image_id = 0
 
                 while True:

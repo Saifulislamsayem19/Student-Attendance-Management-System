@@ -11,7 +11,6 @@ class Register:
         self.root.title("Register")
         self.root.geometry("1366x768+0+0")
 
-        # ============ Variables =================
         self.var_fname = StringVar()
         self.var_lname = StringVar()
         self.var_cnum = StringVar()
@@ -29,15 +28,6 @@ class Register:
 
         frame = Frame(self.root, bg="#F2F2F2")
         frame.place(x=230, y=140, width=900, height=580)
-
-        # img1 = Image.open(
-        #     r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\reg1.png")
-        # self.bg = img1.resize((900, 580), Image.ANTIALIAS)
-        # # self.bg = ImageTk.PhotoImage(img1)
-        # # lb1_bg = Label(image=self.bg, bg="#F2F2F2")
-        # # lb1img1.place(x=300, y=100, width=500, height=100)
-        # lb1_bg=Label(self.root,image=self.bg)
-        # lb1_bg.place(x=0,y=0, relwidth=1,relheight=1)
 
         get_str = Label(frame, text="Registration", font=("times new roman", 30, "bold"), fg="#002B53", bg="#F2F2F2")
         get_str.place(x=350, y=130)
@@ -58,8 +48,6 @@ class Register:
         self.txtpwd = ttk.Entry(frame, textvariable=self.var_lname, font=("times new roman", 15, "bold"))
         self.txtpwd.place(x=103, y=295, width=270)
 
-        # ==================== section 2 -------- 2nd Columan===================
-
         # label1
         cnum = lb1 = Label(frame, text="Contact No:", font=("times new roman", 15, "bold"), fg="#002B53", bg="#F2F2F2")
         cnum.place(x=530, y=200)
@@ -75,8 +63,6 @@ class Register:
         # entry2
         self.txtpwd = ttk.Entry(frame, textvariable=self.var_email, font=("times new roman", 15, "bold"))
         self.txtpwd.place(x=533, y=295, width=270)
-
-        # ========================= Section 3 --- 1 Columan=================
 
         # label1
         ssq = lb1 = Label(frame, text="Select Security Question:", font=("times new roman", 15, "bold"), fg="#002B53",
@@ -98,8 +84,6 @@ class Register:
         # entry2
         self.txtpwd = ttk.Entry(frame, textvariable=self.var_sa, font=("times new roman", 15, "bold"))
         self.txtpwd.place(x=103, y=445, width=270)
-
-        # ========================= Section 4-----Column 2=============================
 
         # label1
         pwd = lb1 = Label(frame, text="Password:", font=("times new roman", 15, "bold"), fg="#002B53", bg="#F2F2F2")
@@ -128,29 +112,25 @@ class Register:
                           relief=RIDGE, fg="#fff", bg="#002B53", activeforeground="white", activebackground="#007ACC")
         loginbtn.place(x=300, y=510, width=270, height=35)
 
-        # # Creating Button Login
-        # loginbtn=Button(frame,text="Login",font=("times new roman",15,"bold"),bd=0,relief=RIDGE,fg="#fff",bg="#002B53",activeforeground="white",activebackground="#007ACC")
-        # loginbtn.place(x=533,y=510,width=270,height=35)
-
     def reg(self):
         if (
                 self.var_fname.get() == "" or self.var_lname.get() == "" or self.var_cnum.get() == "" or self.var_email.get() == "" or self.var_ssq.get() == "Select" or self.var_sa.get() == "" or self.var_pwd.get() == "" or self.var_cpwd.get() == ""):
             messagebox.showerror("Error", "All Field Required!")
-        elif (self.var_pwd.get() != self.var_cpwd.get()):
+        elif self.var_pwd.get() != self.var_cpwd.get():
             messagebox.showerror("Error", "Please Enter Password & Confirm Password are Same!")
-        elif (self.var_check.get() == 0):
+        elif self.var_check.get() == 0:
             messagebox.showerror("Error", "Please Check the Agree Terms and Conditons!")
         else:
-            # messagebox.showinfo("Successfully","Successfully Register!")
+
             try:
                 conn = mysql.connector.connect(username='root', password='Saiful2000', host='localhost',
                                                database='face_recognition', port=3306)
                 mycursor = conn.cursor()
-                query = ("select * from regteach where email=%s")
+                query = "select * from regteach where email=%s"
                 value = (self.var_email.get(),)
                 mycursor.execute(query, value)
                 row = mycursor.fetchone()
-                if row != None:
+                if row is not None:
                     messagebox.showerror("Error", "User already exist,please try another email")
                 else:
                     mycursor.execute("insert into regteach values(%s,%s,%s,%s,%s,%s,%s)", (
