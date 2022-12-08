@@ -3,11 +3,7 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 import os
 import mysql.connector
-import cv2
-import numpy as np
 from tkinter import messagebox
-from time import strftime
-from datetime import datetime
 import csv
 from tkinter import filedialog
 
@@ -15,7 +11,6 @@ mydata = []
 
 
 class Attendance:
-
     def __init__(self, root):
         self.root = root
         self.root.geometry("1366x768+0+0")
