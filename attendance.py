@@ -296,7 +296,6 @@ class Attendance:
         self.var_date.set("")
         self.var_attend.set("Status")
 
-
     def fetchData(self, rows):
         global mydata
         mydata = rows
@@ -330,7 +329,6 @@ class Attendance:
         except Exception as es:
             messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
 
-
     def get_cursor_left(self, event=""):
         cursor_focus = self.attendanceReport_left.focus()
         content = self.attendanceReport_left.item(cursor_focus)
@@ -342,7 +340,6 @@ class Attendance:
         self.var_time.set(data[3]),
         self.var_date.set(data[4]),
         self.var_attend.set(data[5])
-
 
     def get_cursor_right(self, event=""):
         cursor_focus = self.attendanceReport.focus()
