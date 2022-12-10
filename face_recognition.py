@@ -63,7 +63,7 @@ class Face_Recognition:
                 entry = line.split((","))
                 name_list.append(entry[0])
 
-            if ((i not in name_list)) and ((r not in name_list)) and ((n not in name_list)):
+            if (i not in name_list) and (r not in name_list) and (n not in name_list):
                 now = datetime.now()
                 d1 = now.strftime("%d/%m/%Y")
                 dtString = now.strftime("%H:%M:%S")
@@ -119,6 +119,7 @@ class Face_Recognition:
         faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
         clf = cv2.face.LBPHFaceRecognizer_create()
         clf.read("clf.xml")
+        videoCap = cv2.VideoCapture(0)
 
         while True:
             ret, img = videoCap.read()
