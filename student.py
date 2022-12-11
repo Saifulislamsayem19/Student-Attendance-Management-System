@@ -44,7 +44,7 @@ class Student:
 
         # first header image
         img = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\banner.jpg")
+            r"Images_GUI\banner.jpg")
         img = img.resize((1366, 130), Image.ANTIALIAS)
         self.photoimg = ImageTk.PhotoImage(img)
 
@@ -53,7 +53,7 @@ class Student:
         f_lb1.place(x=0, y=0, width=1366, height=130)
 
         # backgorund image
-        bg1 = Image.open(r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\bg3.jpg")
+        bg1 = Image.open(r"Images_GUI\bg3.jpg")
         bg1 = bg1.resize((1366, 768), Image.ANTIALIAS)
         self.photobg1 = ImageTk.PhotoImage(bg1)
 

@@ -17,7 +17,7 @@ class Train:
 
         # first header image
         img = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\banner.jpg")
+            r"Images_GUI\banner.jpg")
         img = img.resize((1366, 130), Image.ANTIALIAS)
         self.photoimg = ImageTk.PhotoImage(img)
 
@@ -27,7 +27,7 @@ class Train:
 
         # backgorund image 
         bg1 = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\t_bg1.jpg")
+            r"Images_GUI\t_bg1.jpg")
         bg1 = bg1.resize((1366, 768), Image.ANTIALIAS)
         self.photobg1 = ImageTk.PhotoImage(bg1)
 
@@ -42,7 +42,7 @@ class Train:
 
         # Training button 1
         std_img_btn = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\t_btn1.png")
+            r"Images_GUI\t_btn1.png")
         std_img_btn = std_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.std_img1 = ImageTk.PhotoImage(std_img_btn)
 

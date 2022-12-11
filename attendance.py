@@ -26,7 +26,7 @@ class Attendance:
 
         # first header image
         img = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\banner.jpg")
+            r"Images_GUI\banner.jpg")
         img = img.resize((1366, 130), Image.ANTIALIAS)
         self.photoimg = ImageTk.PhotoImage(img)
 

@@ -23,7 +23,7 @@ class Login:
         self.var_pwd = StringVar()
 
         self.bg = ImageTk.PhotoImage(
-            file=r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\loginBg1.jpg")
+            file=r"Images_GUI\loginBg1.jpg")
 
         lb1_bg = Label(self.root, image=self.bg)
         lb1_bg.place(x=0, y=0, relwidth=1, relheight=1)
@@ -32,7 +32,7 @@ class Login:
         frame1.place(x=560, y=170, width=340, height=450)
 
         img1 = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\log1.png")
+            r"Images_GUI\log1.png")
         img1 = img1.resize((100, 100), Image.ANTIALIAS)
         self.photoimage1 = ImageTk.PhotoImage(img1)
         lb1img1 = Label(image=self.photoimage1, bg="#002B53")
@@ -204,7 +204,7 @@ class Face_Recognition_System:
 
         # first header image
         img = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\banner1.jpg")
+            r"Images_GUI\banner1.jpg")
         img = img.resize((1175, 130), Image.ANTIALIAS)
         self.photoimg = ImageTk.PhotoImage(img)
 
@@ -213,7 +213,7 @@ class Face_Recognition_System:
         f_lb1.place(x=0, y=0, width=1175, height=130)
 
         # backgorund image
-        bg1 = Image.open(r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\bg.jpg")
+        bg1 = Image.open(r"Images_GUI\bg.jpg")
         bg1 = bg1.resize((1175, 768), Image.ANTIALIAS)
         self.photobg1 = ImageTk.PhotoImage(bg1)
 
@@ -228,7 +228,7 @@ class Face_Recognition_System:
 
         # student button 1
         std_img_btn = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\student_portal_1.jpg")
+            r"Images_GUI\student_portal_1.jpg")
         std_img_btn = std_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.std_img1 = ImageTk.PhotoImage(std_img_btn)
 
@@ -241,7 +241,7 @@ class Face_Recognition_System:
 
         # Detect Face  button 2
         det_img_btn = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\facialrecognition.png")
+            r"Images_GUI\facialrecognition.png")
         det_img_btn = det_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.det_img1 = ImageTk.PhotoImage(det_img_btn)
 
@@ -254,7 +254,7 @@ class Face_Recognition_System:
 
         # Attendance System  button 3
         att_img_btn = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\facial_0.jpg")
+            r"Images_GUI\facial_0.jpg")
         att_img_btn = att_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.att_img1 = ImageTk.PhotoImage(att_img_btn)
 
@@ -267,7 +267,7 @@ class Face_Recognition_System:
 
         # Train   button 4
         tra_img_btn = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\train.png")
+            r"Images_GUI\train.png")
         tra_img_btn = tra_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.tra_img1 = ImageTk.PhotoImage(tra_img_btn)
 
@@ -280,7 +280,7 @@ class Face_Recognition_System:
 
         # Photo   button 5
         pho_img_btn = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\photos.jpg")
+            r"Images_GUI\photos.jpg")
         pho_img_btn = pho_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.pho_img1 = ImageTk.PhotoImage(pho_img_btn)
 
@@ -293,7 +293,7 @@ class Face_Recognition_System:
 
         # exit   button
         exi_img_btn = Image.open(
-            r"C:\Users\Saiful IN\Desktop\My Program\PythonProject\Python_Test_Projects\Images_GUI\exit2.png")
+            r"Images_GUI\exit2.png")
         exi_img_btn = exi_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.exi_img1 = ImageTk.PhotoImage(exi_img_btn)
 
