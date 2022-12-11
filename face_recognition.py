@@ -1,4 +1,5 @@
 # import re
+import time
 from sys import path
 from tkinter import *
 from tkinter import ttk
@@ -55,18 +56,25 @@ class Face_Recognition:
         std_b1_1.place(x=600, y=350, width=180, height=45)
 
     def mark_attendance(self, i, r, n):
-        with open("attendance.csv", "r+", newline="\n") as f:
-            myDatalist = f.readlines()
-            name_list = []
-            for line in myDatalist:
-                entry = line.split((","))
-                name_list.append(entry[0])
+        now = datetime.now()
+        d1 = now.strftime("%d/%m/%Y")
+        dtString = now.strftime("%H:%M:%S")
+        dir = os.path.dirname("Attendance/")
+        if not os.path.exists(dir):
+            os.makedirs(dir)
+        exists = os.path.isfile("Attendance\Attendance_" + d1 + ".csv")
+        if exists:
+            with open("Attendance\Attendance_" + d1 + ".csv", "r+", newline="\n") as f:
+                myDatalist = f.readlines()
+                name_list = []
+                for line in myDatalist:
+                    entry = line.split((","))
+                    name_list.append(entry[0])
 
-            if (i not in name_list) and (r not in name_list) and (n not in name_list):
-                now = datetime.now()
-                d1 = now.strftime("%d/%m/%Y")
-                dtString = now.strftime("%H:%M:%S")
-                f.writelines(f"\n{i}, {r}, {n}, {dtString}, {d1}, Present")
+                if (i not in name_list) and (r not in name_list) and (n not in name_list):
+                    f.writelines(f"\n{i}, {r}, {n}, {dtString}, {d1}, Present")
+
+
 
     def face_recog(self):
         def draw_boundray(img, classifier, scaleFactor, minNeighbors, color, text, clf):
@@ -87,6 +95,7 @@ class Face_Recognition:
 
                 cursor.execute("select Name from student where Student_ID=" + str(id))
                 n = cursor.fetchone()
+                print(n, id)
                 n = "+".join(n)
 
                 cursor.execute("select Roll_No from student where Student_ID=" + str(id))
@@ -96,6 +105,7 @@ class Face_Recognition:
                 cursor.execute("select Student_ID from student where Student_ID=" + str(id))
                 i = cursor.fetchone()
                 i = "+".join(i)
+                print(n,r,i)
 
                 if confidence > 77:
                     cv2.putText(img, f"Student_ID:{i}", (x, y - 80), cv2.FONT_HERSHEY_COMPLEX, 0.8, (64, 15, 223), 2)
@@ -125,7 +135,7 @@ class Face_Recognition:
             img = recognize(img, clf, faceCascade)
             cv2.imshow("Face Detector", img)
 
-            if cv2.waitKey(1) == 13:
+            if cv2.waitKey(1) == ord('q'):
                 break
         videoCap.release()
         cv2.destroyAllWindows()
