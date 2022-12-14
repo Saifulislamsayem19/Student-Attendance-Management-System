@@ -74,8 +74,6 @@ class Face_Recognition:
                 if (i not in name_list) and (r not in name_list) and (n not in name_list):
                     f.writelines(f"\n{i}, {r}, {n}, {dtString}, {d1}, Present")
 
-
-
     def face_recog(self):
         def draw_boundray(img, classifier, scaleFactor, minNeighbors, color, text, clf):
             gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -105,7 +103,7 @@ class Face_Recognition:
                 cursor.execute("select Student_ID from student where Student_ID=" + str(id))
                 i = cursor.fetchone()
                 i = "+".join(i)
-                print(n,r,i)
+                print(n, r, i)
 
                 if confidence > 77:
                     cv2.putText(img, f"Student_ID:{i}", (x, y - 80), cv2.FONT_HERSHEY_COMPLEX, 0.8, (64, 15, 223), 2)
