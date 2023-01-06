@@ -23,7 +23,7 @@ class Face_Recognition_System:
         f_lb1.place(x=0, y=0, width=1175, height=130)
 
         # backgorund image 
-        bg1 = Image.open(r"Images_GUI\bg.jpg")
+        bg1 = Image.open(r"Images_GUI\bg2.jpg")
         bg1 = bg1.resize((1175, 768), Image.ANTIALIAS)
         self.photobg1 = ImageTk.PhotoImage(bg1)
 
@@ -73,7 +73,7 @@ class Face_Recognition_System:
         tra_b1_1.place(x=710, y=280, width=180, height=30)
 
         # Detect Face  button 4
-        det_img_btn = Image.open(r"Images_GUI\facialrecognition.png")
+        det_img_btn = Image.open(r"Images_GUI\facial_0.jpg")
         det_img_btn = det_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.det_img1 = ImageTk.PhotoImage(det_img_btn)
 
@@ -85,7 +85,7 @@ class Face_Recognition_System:
         det_b1_1.place(x=250, y=510, width=180, height=30)
 
         # Attendance System  button 5
-        att_img_btn = Image.open(r"Images_GUI\facial_0.jpg")
+        att_img_btn = Image.open(r"Images_GUI\att.jpg")
         att_img_btn = att_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.att_img1 = ImageTk.PhotoImage(att_img_btn)
 

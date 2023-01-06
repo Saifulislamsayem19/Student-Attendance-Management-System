@@ -26,7 +26,7 @@ class Attendance:
 
         # first header image
         img = Image.open(
-            r"Images_GUI\banner.jpg")
+            r"Images_GUI\banner_attendance.jpg")
         img = img.resize((1366, 130), Image.ANTIALIAS)
         self.photoimg = ImageTk.PhotoImage(img)
 

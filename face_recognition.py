@@ -22,7 +22,7 @@ class Face_Recognition:
         self.root.title("Face Recognition Pannel")
 
         # first header image
-        img = Image.open(r"Images_GUI\banner.jpg")
+        img = Image.open(r"Images_GUI\banner2.jpg")
         img = img.resize((1366, 130), Image.ANTIALIAS)
         self.photoimg = ImageTk.PhotoImage(img)
 
