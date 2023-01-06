@@ -103,8 +103,8 @@ class Student:
         cou_combo = ttk.Combobox(current_course_frame, textvariable=self.var_course, width=15,
                                  font=("verdana", 12, "bold"), state="readonly")
         cou_combo["values"] = (
-            "Select Course", "CSE-501", "CSE-502", "CSE-503", "CSE-504", "CSE-505", "CSE-506", "CSE-507", "CSE-508",
-            "CSE-509")
+            "Select Course", "CSE-601", "CSE-602", "CSE-603", "CSE-604", "CSE-605", "CSE-606", "CSE-607", "CSE-608",
+            "CSE-609","CSE-610")
         cou_combo.current(0)
         cou_combo.grid(row=0, column=3, padx=5, pady=15, sticky=W)
 
