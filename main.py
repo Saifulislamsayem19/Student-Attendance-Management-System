@@ -14,8 +14,7 @@ class Face_Recognition_System:
         self.root.title("Face_Recogonition_System")
 
         # first header image
-        img = Image.open(
-            r"Images_GUI\banner1.jpg")
+        img = Image.open(r"Images_GUI\banner1.jpg")
         img = img.resize((1175, 130), Image.ANTIALIAS)
         self.photoimg = ImageTk.PhotoImage(img)
 
@@ -33,78 +32,72 @@ class Face_Recognition_System:
         bg_img.place(x=0, y=130, width=1175, height=768)
 
         # title section
-        title_lb1 = Label(bg_img, text="Attendance Managment System Using Facial Recognition",
+        title_lb1 = Label(bg_img, text="Welcome To Student Attendance Managment System",
                           font=("verdana", 25, "bold"), bg="white", fg="navyblue")
         title_lb1.place(x=0, y=0, width=1175, height=45)
 
         # student button 1
-        std_img_btn = Image.open(
-            r"Images_GUI\student_portal_1.jpg")
+        std_img_btn = Image.open(r"Images_GUI\student_portal_1.jpg")
         std_img_btn = std_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.std_img1 = ImageTk.PhotoImage(std_img_btn)
 
         std_b1 = Button(bg_img, command=self.student_pannels, image=self.std_img1, cursor="hand2")
         std_b1.place(x=250, y=100, width=180, height=180)
 
-        std_b1_1 = Button(bg_img, command=self.student_pannels, text="Student Details", cursor="hand2",
+        std_b1_1 = Button(bg_img, command=self.student_pannels, text="Students Details", cursor="hand2",
                           font=("tahoma", 15, "bold"), bg="white", fg="navyblue")
-        std_b1_1.place(x=250, y=280, width=180, height=45)
+        std_b1_1.place(x=250, y=280, width=180, height=30)
 
-        # Detect Face  button 2
-        det_img_btn = Image.open(
-            r"Images_GUI\facialrecognition.png")
-        det_img_btn = det_img_btn.resize((180, 180), Image.ANTIALIAS)
-        self.det_img1 = ImageTk.PhotoImage(det_img_btn)
-
-        det_b1 = Button(bg_img, command=self.face_rec, image=self.det_img1, cursor="hand2", )
-        det_b1.place(x=480, y=100, width=180, height=180)
-
-        det_b1_1 = Button(bg_img, command=self.face_rec, text="Face Recognition", cursor="hand2",
-                          font=("tahoma", 15, "bold"), bg="white", fg="navyblue")
-        det_b1_1.place(x=480, y=280, width=180, height=45)
-
-        # Attendance System  button 3
-        att_img_btn = Image.open(
-            r"Images_GUI\facial_0.jpg")
-        att_img_btn = att_img_btn.resize((180, 180), Image.ANTIALIAS)
-        self.att_img1 = ImageTk.PhotoImage(att_img_btn)
-
-        att_b1 = Button(bg_img, command=self.attendance_pannel, image=self.att_img1, cursor="hand2", )
-        att_b1.place(x=710, y=100, width=180, height=180)
-
-        att_b1_1 = Button(bg_img, command=self.attendance_pannel, text="Attendance", cursor="hand2",
-                          font=("tahoma", 15, "bold"), bg="white", fg="navyblue")
-        att_b1_1.place(x=710, y=280, width=180, height=45)
-
-        # Train   button 4
-        tra_img_btn = Image.open(
-            r"Images_GUI\train.png")
-        tra_img_btn = tra_img_btn.resize((180, 180), Image.ANTIALIAS)
-        self.tra_img1 = ImageTk.PhotoImage(tra_img_btn)
-
-        tra_b1 = Button(bg_img, command=self.train_pannels, image=self.tra_img1, cursor="hand2", )
-        tra_b1.place(x=250, y=330, width=180, height=180)
-
-        tra_b1_1 = Button(bg_img, command=self.train_pannels, text="Data Train", cursor="hand2",
-                          font=("tahoma", 15, "bold"), bg="white", fg="navyblue")
-        tra_b1_1.place(x=250, y=510, width=180, height=45)
-
-        # Photo   button 5
-        pho_img_btn = Image.open(
-            r"Images_GUI\photos.jpg")
+        # Photo   button 2
+        pho_img_btn = Image.open(r"Images_GUI\photos.jpg")
         pho_img_btn = pho_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.pho_img1 = ImageTk.PhotoImage(pho_img_btn)
 
         pho_b1 = Button(bg_img, command=self.open_img, image=self.pho_img1, cursor="hand2", )
-        pho_b1.place(x=480, y=330, width=180, height=180)
+        pho_b1.place(x=480, y=100, width=180, height=180)
 
-        pho_b1_1 = Button(bg_img, command=self.open_img, text="Photos", cursor="hand2", font=("tahoma", 15, "bold"),
+        pho_b1_1 = Button(bg_img, command=self.open_img, text="Check Photos", cursor="hand2", font=("tahoma", 15, "bold"),
                           bg="white", fg="navyblue")
-        pho_b1_1.place(x=480, y=510, width=180, height=45)
+        pho_b1_1.place(x=480, y=280, width=180, height=30)
+
+        # Train   button 3
+        tra_img_btn = Image.open(r"Images_GUI\train.png")
+        tra_img_btn = tra_img_btn.resize((180, 180), Image.ANTIALIAS)
+        self.tra_img1 = ImageTk.PhotoImage(tra_img_btn)
+
+        tra_b1 = Button(bg_img, command=self.train_pannels, image=self.tra_img1, cursor="hand2", )
+        tra_b1.place(x=710, y=100, width=180, height=180)
+
+        tra_b1_1 = Button(bg_img, command=self.train_pannels, text="Train AI", cursor="hand2",
+                          font=("tahoma", 15, "bold"), bg="white", fg="navyblue")
+        tra_b1_1.place(x=710, y=280, width=180, height=30)
+
+        # Detect Face  button 4
+        det_img_btn = Image.open(r"Images_GUI\facialrecognition.png")
+        det_img_btn = det_img_btn.resize((180, 180), Image.ANTIALIAS)
+        self.det_img1 = ImageTk.PhotoImage(det_img_btn)
+
+        det_b1 = Button(bg_img, command=self.face_rec, image=self.det_img1, cursor="hand2", )
+        det_b1.place(x=250, y=330, width=180, height=180)
+
+        det_b1_1 = Button(bg_img, command=self.face_rec, text="Take Attendance", cursor="hand2",
+                          font=("tahoma", 15, "bold"), bg="white", fg="navyblue")
+        det_b1_1.place(x=250, y=510, width=180, height=30)
+
+        # Attendance System  button 5
+        att_img_btn = Image.open(r"Images_GUI\facial_0.jpg")
+        att_img_btn = att_img_btn.resize((180, 180), Image.ANTIALIAS)
+        self.att_img1 = ImageTk.PhotoImage(att_img_btn)
+
+        att_b1 = Button(bg_img, command=self.attendance_pannel, image=self.att_img1, cursor="hand2", )
+        att_b1.place(x=480, y=330, width=180, height=180)
+
+        att_b1_1 = Button(bg_img, command=self.attendance_pannel, text="Check Attendance", cursor="hand2",
+                          font=("tahoma", 14, "bold"), bg="white", fg="navyblue")
+        att_b1_1.place(x=480, y=510, width=180, height=30)
 
         # exit   button
-        exi_img_btn = Image.open(
-            r"Images_GUI\exit2.png")
+        exi_img_btn = Image.open(r"Images_GUI\exit2.png")
         exi_img_btn = exi_img_btn.resize((180, 180), Image.ANTIALIAS)
         self.exi_img1 = ImageTk.PhotoImage(exi_img_btn)
 
@@ -113,7 +106,7 @@ class Face_Recognition_System:
 
         exi_b1_1 = Button(bg_img, command=self.Close, text="Exit", cursor="hand2", font=("tahoma", 15, "bold"),
                           bg="white", fg="navyblue")
-        exi_b1_1.place(x=710, y=510, width=180, height=45)
+        exi_b1_1.place(x=710, y=510, width=180, height=30)
 
     def open_img(self):
         os.startfile("dataset")

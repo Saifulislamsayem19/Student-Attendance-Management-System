@@ -16,9 +16,9 @@ class Attendance:
         self.root.geometry("1366x768+0+0")
         self.root.title("Attendance Pannel")
 
-        self.var_id = StringVar()
-        self.var_roll = StringVar()
-        self.var_name = StringVar()
+        self.var_roll_no = StringVar()
+        self.var_std_name = StringVar()
+        self.var_dept = StringVar()
         self.var_dep = StringVar()
         self.var_time = StringVar()
         self.var_date = StringVar()
@@ -57,26 +57,26 @@ class Attendance:
                                 font=("verdana", 12, "bold"), fg="navyblue")
         left_frame.place(x=10, y=10, width=660, height=480)
 
-        # Student id
-        studentId_label = Label(left_frame, text="Std-ID:", font=("verdana", 12, "bold"), fg="navyblue", bg="white")
+        # Student roll-no
+        studentId_label = Label(left_frame, text="Roll-No:", font=("verdana", 12, "bold"), fg="navyblue", bg="white")
         studentId_label.grid(row=0, column=0, padx=5, pady=5, sticky=W)
 
-        studentId_entry = ttk.Entry(left_frame, textvariable=self.var_id, width=15, font=("verdana", 12, "bold"))
+        studentId_entry = ttk.Entry(left_frame, textvariable=self.var_roll_no, width=15, font=("verdana", 12, "bold"))
         studentId_entry.grid(row=0, column=1, padx=5, pady=5, sticky=W)
 
-        # Student Roll
-        student_roll_label = Label(left_frame, text="Roll.No:", font=("verdana", 12, "bold"), fg="navyblue", bg="white")
+        # Student name
+        student_roll_label = Label(left_frame, text="Std-Name:", font=("verdana", 12, "bold"), fg="navyblue", bg="white")
         student_roll_label.grid(row=0, column=2, padx=5, pady=5, sticky=W)
 
-        student_roll_entry = ttk.Entry(left_frame, textvariable=self.var_roll, width=15, font=("verdana", 12, "bold"))
+        student_roll_entry = ttk.Entry(left_frame, textvariable=self.var_std_name, width=15, font=("verdana", 12, "bold"))
         student_roll_entry.grid(row=0, column=3, padx=5, pady=5, sticky=W)
 
-        # Studnet Name
-        student_name_label = Label(left_frame, text="Std-Name:", font=("verdana", 12, "bold"), fg="navyblue",
+        # Studnet Department
+        student_name_label = Label(left_frame, text="Department:", font=("verdana", 12, "bold"), fg="navyblue",
                                    bg="white")
         student_name_label.grid(row=1, column=0, padx=5, pady=5, sticky=W)
 
-        student_name_entry = ttk.Entry(left_frame, textvariable=self.var_name, width=15, font=("verdana", 12, "bold"))
+        student_name_entry = ttk.Entry(left_frame, textvariable=self.var_dept, width=15, font=("verdana", 12, "bold"))
         student_name_entry.grid(row=1, column=1, padx=5, pady=5, sticky=W)
 
         # time
@@ -113,7 +113,7 @@ class Attendance:
 
         # create table
         self.attendanceReport_left = ttk.Treeview(table_frame,
-                                                  column=("ID", "Roll_No", "Name", "Time", "Date", "Attend"),
+                                                  column=("Roll_No", "Name", "Department", "Time", "Date", "Attend"),
                                                   xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
 
         scroll_x.pack(side=BOTTOM, fill=X)
@@ -121,18 +121,18 @@ class Attendance:
         scroll_x.config(command=self.attendanceReport_left.xview)
         scroll_y.config(command=self.attendanceReport_left.yview)
 
-        self.attendanceReport_left.heading("ID", text="Std-ID")
-        self.attendanceReport_left.heading("Roll_No", text="Roll.No")
+        self.attendanceReport_left.heading("Roll_No", text="Roll-No")
         self.attendanceReport_left.heading("Name", text="Std-Name")
+        self.attendanceReport_left.heading("Department", text="Department")
         self.attendanceReport_left.heading("Time", text="Time")
         self.attendanceReport_left.heading("Date", text="Date")
         self.attendanceReport_left.heading("Attend", text="Attend-status")
         self.attendanceReport_left["show"] = "headings"
 
         # Set Width of Colums
-        self.attendanceReport_left.column("ID", width=100)
         self.attendanceReport_left.column("Roll_No", width=100)
         self.attendanceReport_left.column("Name", width=100)
+        self.attendanceReport_left.column("Department", width=100)
         self.attendanceReport_left.column("Time", width=100)
         self.attendanceReport_left.column("Date", width=100)
         self.attendanceReport_left.column("Attend", width=100)
@@ -179,7 +179,7 @@ class Attendance:
         scroll_y = ttk.Scrollbar(table_frame, orient=VERTICAL)
 
         # create table
-        self.attendanceReport = ttk.Treeview(table_frame, column=("ID", "Roll_No", "Name", "Time", "Date", "Attend"),
+        self.attendanceReport = ttk.Treeview(table_frame, column=("Roll_No", "Name","Department", "Time", "Date", "Attend"),
                                              xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
 
         scroll_x.pack(side=BOTTOM, fill=X)
@@ -187,18 +187,18 @@ class Attendance:
         scroll_x.config(command=self.attendanceReport.xview)
         scroll_y.config(command=self.attendanceReport.yview)
 
-        self.attendanceReport.heading("ID", text="Std-ID")
         self.attendanceReport.heading("Roll_No", text="Roll.No")
         self.attendanceReport.heading("Name", text="Std-Name")
+        self.attendanceReport.heading("Department", text="Department")
         self.attendanceReport.heading("Time", text="Time")
         self.attendanceReport.heading("Date", text="Date")
         self.attendanceReport.heading("Attend", text="Attend-status")
         self.attendanceReport["show"] = "headings"
 
         # Set Width of Colums
-        self.attendanceReport.column("ID", width=100)
         self.attendanceReport.column("Roll_No", width=100)
         self.attendanceReport.column("Name", width=100)
+        self.attendanceReport.column("Department", width=100)
         self.attendanceReport.column("Time", width=100)
         self.attendanceReport.column("Date", width=100)
         self.attendanceReport.column("Attend", width=100)
@@ -217,7 +217,7 @@ class Attendance:
         del_btn.grid(row=0, column=2, padx=6, pady=10, sticky=W)
 
     def update_data(self):
-        if self.var_id.get() == "" or self.var_roll.get == "" or self.var_name.get() == "" or self.var_time.get() == "" or self.var_date.get() == "" or self.var_attend.get() == "Status":
+        if self.var_roll_no.get() == "" or self.var_std_name.get == "" or self.var_dept.get() == "" or self.var_time.get() == "" or self.var_date.get() == "" or self.var_attend.get() == "Status":
             messagebox.showerror("Error", "Please Fill All Fields are Required!", parent=self.root)
         else:
             try:
@@ -228,16 +228,16 @@ class Attendance:
                                                    database='face_recognition', port=3306)
                     mycursor = conn.cursor()
                     mycursor.execute(
-                        "update stdattendance set std_id=%s,std_roll_no=%s,std_name=%s,std_time=%s,std_date=%s,"
-                        "std_attendance=%s where std_id=%s",
+                        "update stdattendance set std_roll_no=%s,std_name=%s,std_dept=%s,std_time=%s,std_date=%s,"
+                        "std_attendance=%s where std_roll_no=%s",
                         (
-                            self.var_id.get(),
-                            self.var_roll.get(),
-                            self.var_name.get(),
+                            self.var_roll_no.get(),
+                            self.var_std_name.get(),
+                            self.var_dept.get(),
                             self.var_time.get(),
                             self.var_date.get(),
                             self.var_attend.get(),
-                            self.var_id.get()
+                            self.var_roll_no.get()
                         ))
                 else:
                     if not Update:
@@ -250,17 +250,17 @@ class Attendance:
                 messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
 
     def delete_data(self):
-        if self.var_id.get() == "":
+        if self.var_roll_no.get() == "":
             messagebox.showerror("Error", "Student Id Must be Required!", parent=self.root)
         else:
             try:
                 delete = messagebox.askyesno("Delete", "Do you want to Delete?", parent=self.root)
                 if delete > 0:
-                    conn = mysql.connector.connect(username='root', password='root', host='localhost',
-                                                   database='face_recognition', port=3307)
+                    conn = mysql.connector.connect(username='root', password='Saiful2000', host='localhost',
+                                                   database='face_recognition', port=3306)
                     mycursor = conn.cursor()
-                    sql = "delete from stdattendance where std_id=%s"
-                    val = (self.var_id.get(),)
+                    sql = "delete from stdattendance where std_roll_no=%s"
+                    val = (self.var_roll_no.get(),)
                     mycursor.execute(sql, val)
                 else:
                     if not delete:
@@ -289,9 +289,9 @@ class Attendance:
         conn.close()
 
     def reset_data(self):
-        self.var_id.set("")
-        self.var_roll.set("")
-        self.var_name.set("")
+        self.var_roll_no.set("")
+        self.var_std_name.set("")
+        self.var_dept.set("")
         self.var_time.set("")
         self.var_date.set("")
         self.var_attend.set("Status")
@@ -302,7 +302,7 @@ class Attendance:
         self.attendanceReport_left.delete(*self.attendanceReport_left.get_children())
         for i in rows:
             self.attendanceReport_left.insert("", END, values=i)
-            print(i)
+            # print(i)
 
     def importCsv(self):
         mydata.clear()
@@ -334,9 +334,9 @@ class Attendance:
         content = self.attendanceReport_left.item(cursor_focus)
         data = content["values"]
 
-        self.var_id.set(data[0]),
-        self.var_roll.set(data[1]),
-        self.var_name.set(data[2]),
+        self.var_roll_no.set(data[0]),
+        self.var_std_name.set(data[1]),
+        self.var_dept.set(data[2]),
         self.var_time.set(data[3]),
         self.var_date.set(data[4]),
         self.var_attend.set(data[5])
@@ -346,16 +346,16 @@ class Attendance:
         content = self.attendanceReport.item(cursor_focus)
         data = content["values"]
 
-        self.var_id.set(data[0]),
-        self.var_roll.set(data[1]),
-        self.var_name.set(data[2]),
+        self.var_roll_no.set(data[0]),
+        self.var_std_name.set(data[1]),
+        self.var_dept.set(data[2]),
         self.var_time.set(data[3]),
         self.var_date.set(data[4]),
         self.var_attend.set(data[5])
 
     # export upadte
     def action(self):
-        if self.var_id.get() == "" or self.var_roll.get == "" or self.var_name.get() == "" or self.var_time.get() == "" or self.var_date.get() == "" or self.var_attend.get() == "Status":
+        if self.var_roll_no.get() == "" or self.var_std_name.get == "" or self.var_dept.get() == "" or self.var_time.get() == "" or self.var_date.get() == "" or self.var_attend.get() == "Status":
             messagebox.showerror("Error", "Please Fill All Fields are Required!", parent=self.root)
         else:
             try:
@@ -363,9 +363,9 @@ class Attendance:
                                                database='face_recognition', port=3306)
                 mycursor = conn.cursor()
                 mycursor.execute("insert into stdattendance values(%s,%s,%s,%s,%s,%s)", (
-                    self.var_id.get(),
-                    self.var_roll.get(),
-                    self.var_name.get(),
+                    self.var_roll_no.get(),
+                    self.var_std_name.get(),
+                    self.var_dept.get(),
                     self.var_time.get(),
                     self.var_date.get(),
                     self.var_attend.get()
